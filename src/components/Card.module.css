@@ -1,0 +1,30 @@
+.Card {
+    display: inline-block;
+    border-radius: 5px;
+    padding: 25px;
+    margin: 10px;
+    font-size: large;
+    font-family: sans-serif;
+    background: linear-gradient(45deg, #0062ff, #003a97, #002664, #003a97, #0062ff);
+    color: white;
+    font-weight: bold; 
+    text-align: center; 
+    z-index: 1000;
+    border: 10px solid transparent;
+    box-shadow: 0px 0px 10px #FF66C4;
+  }
+  
+  .selected {
+    background: #91dfdf;
+  }
+  
+  .button {
+    background: none; /* Make the background transparent */
+    color: #ffffff; /* Neon blue font color */
+    font-family: sans-serif;
+    font-size: 20px; /* Adjust font size as needed */
+    border: white;
+    padding: 20px;
+    border-radius: 10px;
+    background: linear-gradient(45deg, #fa85ee, #a1bef9);
+  }
