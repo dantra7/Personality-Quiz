@@ -1,0 +1,142 @@
+.test {
+    width: 600px;
+    text-align: center;
+  }
+
+
+.title {
+    font-size: 2em; /* or any other value that suits your needs */
+    font-weight: bold;
+    text-align: center;
+}
+
+.paragraph {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    font-size: medium; /* or any other value that suits your needs */
+    font-weight: bold;
+    text-align: center;
+    /* display: inline-block; */
+}
+
+.button{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    display: inline-block;
+    border-radius: 5px;
+    /* padding: 25px; */
+    margin: 10px;
+    font-size: large;
+    font-family: sans-serif;
+    background: #4918d0;
+
+    color: white;
+    font-weight: bold; 
+    text-align: center; 
+    z-index: 1000;
+    border: 10px solid transparent;
+    width: 100px;
+    height: 50px;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    min-height: 100vh; /* Ensure the layout takes up at least the full viewport height */
+    max-width: 700px; /* Limit the width of the content */
+    margin: 0 auto; /* Horizontally center the content */
+    padding: 20px; /* Add padding as needed */
+  }
+.loader {
+    border: 5px solid #f3f3f3; /* Light grey */
+    border-top: 5px solid #484848; /* Blue */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+  }
+
+.loaderContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  @keyframes grow {
+    0% { max-height: var(--lineHeight); }
+    100% { max-height: calc(var(--lineHeight) * var(--lines)); }
+  }
+  
+  @keyframes carriageReturn {
+    0% { top: 0; }
+    100% { top: calc(var(--lineHeight) * var(--lines)); }
+  }
+  
+  @keyframes type {
+    0% { width: 100%; }
+    100% { width: 0%; }
+  }
+  
+  @keyframes caret {
+    0% { color: var(--bgColor); }
+    100% { color: black; }
+  }
+  
+  .typewriter {
+    --bgColor: white;
+    --lines: 500;
+    --lineHeight: 1.5rem;
+    --timePerLine: 2s;
+    --widthCh: 70;
+    --width: calc(var(--widthCh) * 1ch);
+    /* do not touch the time property!!! */
+    --time: calc(var(--lines) * var(--timePerLine));
+    animation: grow var(--time) steps(var(--lines));
+    animation-fill-mode: forwards;
+    background: var(--bgColor);  
+    line-height: var(--lineHeight);
+    max-height: var(--lineHeight);
+    overflow: hidden;
+    position: relative;
+    width: var(--width);
+    /* word-break: break-all; */
+  }
+  
+  .typewriter::before {
+    content: "";
+    animation: 
+      type var(--timePerLine) linear infinite, 
+      carriageReturn var(--time) steps(var(--lines)) var(--lines),
+      caret 0.5s steps(2) infinite;
+    background: var(--bgColor);
+    border-left: 2px solid;
+    bottom: 0;
+    height: 2rem;
+    position: absolute;
+    right: 0;
+    width: 100%;
+  }
+  
+  .typewriter.no-caret::before {
+    border-left-width: 0;
+  }
+  
+  .typewriter.big-caret::before {
+    border-left-width: 1ch;
+  }
+  
+  .typewriter.monospace::before {
+    animation: 
+      type var(--timePerLine) steps(var(--widthCh)) infinite, 
+      carriageReturn var(--time) steps(var(--lines)) var(--lines),
+      caret 0.5s steps(2) infinite;
+  }

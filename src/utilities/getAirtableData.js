@@ -1,5 +1,4 @@
 import Airtable from "airtable";
-import route from '../app/api/airtable/route.js'
 
 const getAirtableData = async (options) => {
     const base = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base(process.env.BASE_ID);

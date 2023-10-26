@@ -5,15 +5,16 @@ import styles from '../components/Card.module.css';
 const Card = ({ options, selectedOption, onSelect }) => {
   return (
     <div style={{ textAlign: 'center' }}>
-      {options.map((option) => (
+      {Object.keys(options).map((key) => (
         <button
-          key={option}
-          className={`${styles.Card} ${
-            selectedOption === option ? styles.selected : ''
-            } ${styles.cardButton}`}
-          onClick={() => onSelect(option)}
-        >
-          {option}
+          key={options[key]}
+          className={`${styles.card} ${
+            selectedOption === options[key] ? styles.selected : ""
+          } ${styles.cardButton}`}
+          // className={styles.card}
+          onClick={() => onSelect(options[key])}
+          >
+          {options[key]}
         </button>
       ))}
     </div>
