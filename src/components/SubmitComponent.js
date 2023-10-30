@@ -26,10 +26,16 @@ const SubmitComponent = ({ questions }) => {
       notSelected: getUnselectedOptions(question.id)[0], // Assuming only 2 options per question
     }));
 
-    const prompt = `If someone identifies themselves as more ${pairedOptions
+    const prompt = `For context, in Avatar the Last Airbender, there are four elements which 
+      people can "bend", or control. The four elements are water, earth, fire, and air. The
+      four elements each correspond to character traits within a person, which I will provide below:
+      Earth Benders are patient, stubborn, grounded, and strong-willed. Fire benders are prideful, 
+      passionate, determined, and loyal. Air benders are gentle, creative, playful, and quick thinkers. 
+      Water benders are calm, collected, flexible, and content.
+      If someone identifies themselves as more ${pairedOptions
       .map(({ selected, notSelected }) => `${selected} than ${notSelected}`)
-      .join(', ')}, what 10 highly specific fictional characters, each with their own distinctive personalities, can you think of that would get similar results from taking this quiz and stand out from the typical preferences of most other fictional characters (no explanations needed)?`;
-    console.log('Prompt:', prompt);
+      .join(', ')}, what 'bender' are they the most similar to? Water, Earth, Fire, or Air?`;
+    console.log('Prompt:', prompt); 
 
     try {
       const response = await axios.post(
