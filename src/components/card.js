@@ -1,5 +1,3 @@
-import { useState } from 'react';
-import getAirtableData from '../utilities/getAirtableData';
 import styles from '../components/Card.module.css';
 
 const Card = ({ options, selectedOption, onSelect }) => {

@@ -5,7 +5,7 @@
     margin: 10px;
     font-size: large;
     font-family: sans-serif;
-    background: linear-gradient(45deg, #0062ff, #003a97, #002664, #003a97, #0062ff);
+    background: linear-gradient(45deg, #0062ff, #003a97, #001c49, #003a97, #0062ff);
     color: white;
     font-weight: bold; 
     text-align: center; 
@@ -15,7 +15,7 @@
   }
   
   .selected {
-    background: #91dfdf;
+    background: linear-gradient(45deg, #428f41, #66d698, #66ff00, #66d698, #428f41);
   }
   
   .button {
