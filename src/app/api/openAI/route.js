@@ -7,10 +7,15 @@ export async function POST(request) {
     });
     const data = await request.json();
     
-    const prompt = `Here is some background for this prompt: The data provided is given from a user completing questions about which of two options they prefer. 
-        The user had the follow list of questions: ${data.TotalOptions}. Here are the selections they picked: ${data.SelectedOptions}. Using the user's selections, 
-        determine what bidepal animal (other than a human) the user is the most like. As well as determining the user's best fit,
-        also provide a paragraph as to why the user is described by that ice cream flavor.`
+    const prompt = `For context, in Avatar the Last Airbender, there are four elements which 
+      people can "bend", or control. The four elements are water, earth, fire, and air. The
+      four elements each correspond to character traits within a person, which I will provide below:
+      Earth Benders are patient, stubborn, grounded, and strong-willed. Fire benders are prideful, 
+      passionate, determined, and loyal. Air benders are gentle, creative, playful, and quick thinkers. 
+      Water benders are calm, collected, flexible, and content.
+      If someone identifies themselves as more ${pairedOptions
+      .map(({ selected, notSelected }) => `${selected} than ${notSelected}`)
+      .join(', ')}, what 'bender' are they the most similar to? Water, Earth, Fire, or Air?`;
     const response = await openai.chat.completions.create({
         model: "gpt-3.5-turbo",
         messages: [
